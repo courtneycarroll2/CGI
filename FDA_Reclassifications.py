@@ -3,7 +3,11 @@ import numpy as np
 from bs4 import BeautifulSoup
 import requests
 
-# This script accesses ClinVar's database to find all human genetic variant classifications that the FDA considers to be supported by valid scientific evidence (See https://www.clinicalgenome.org/events-news/clingen-in-the-news/fda-recognizes-clingen-assertions-in-clinvar-twitter-chat/). For those variants with classifications that were downgraded (clinical significance reclassified to a lower significance) after FDA approval of the database, this script then accesses gnomAD's database to determine how many people have been affected by these reclassifications.
+# This script accesses ClinVar's database to find all human genetic variant classifications that the FDA considers 
+# to be supported by valid scientific evidence (See https://www.clinicalgenome.org/events-news/clingen-in-the-news/fda-recognizes-clingen-assertions-in-clinvar-twitter-chat/). 
+# For those variants with classifications that were downgraded (clinical significance reclassified to a lower significance) 
+# after FDA approval of the database, this script then accesses gnomAD's database to determine how many people 
+# have been affected by these reclassifications.
 
 
 ################ CREATE DATAFRAME FOR SCRAPED DATA ##############
@@ -53,4 +57,5 @@ for link in variants[0:5]:
             tableDataList = tableDataList + [np.nan, np.nan, np.nan]
     dataList = dataList + tableDataList
     data.loc[len(data)] = dataList
+
 print(data)
